@@ -20,7 +20,7 @@ struct URLs  {
         var absoluteUrl: String {
             switch self {
             case .discoverPopularMovie:
-                return "\(URLs.baseUrl)/discover/popular\(URLs.apiKeyParam)"
+                return "\(URLs.baseUrl)/movie/popular\(URLs.apiKeyParam)"
             case .posterPath(let posterPath):
                 return "\(URLs.posterBaseUrl)/\(posterPath)"
             }

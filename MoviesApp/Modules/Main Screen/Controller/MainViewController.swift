@@ -10,17 +10,33 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var moviesTableView: UITableView!
+    let moviesAPI = MoviesAPI()
+    var moviesArr = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureMoviesTableView()
+        getPopularMovies()
     }
     
     func configureMoviesTableView() {
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
         moviesTableView.register(UINib(nibName: K.movieCellNibName, bundle: nil), forCellReuseIdentifier: K.moviesTableViewCellID)
+    }
+    
+    func getPopularMovies() {
+        self.showSpinner(onView: self.view)
+        moviesAPI.getPopularMovies { (movies, error) in
+            self.removeSpinner()
+            if let error = error {
+                print("Error Getting Popular movies \(error)")
+            } else {
+                self.moviesArr = movies!.movies
+                self.moviesTableView.reloadData()
+            }
+        }
     }
 }
 
@@ -36,11 +52,23 @@ extension MainViewController: UITableViewDelegate {
 //MARK:- UITableView Data Source Methods
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return moviesArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.moviesTableViewCellID) as! MovieTableViewCell
+        let movie = self.moviesArr[indexPath.row]
+        cell.movieTitle.text = movie.originalTitle
+        cell.movieRate.text = "\(movie.voteAverage)"
+        cell.movieReleaseDate.text = movie.releaseDate
+        if let poster = movie.posterPath {
+            if let url =  URL(string: URLs.Path.posterPath(poster).absoluteUrl) {
+                ImageManager.downloadImage(from: url) { (image) in
+                    cell.moviePoster.image = image
+                    cell.layoutIfNeeded()
+                }
+            }
+        }
         return cell
     }
     

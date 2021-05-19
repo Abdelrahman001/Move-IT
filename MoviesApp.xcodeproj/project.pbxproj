@@ -26,7 +26,7 @@
 		929360372654848F00362E55 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929360362654848F00362E55 /* Constants.swift */; };
 		929360502654955100362E55 /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293604F2654955100362E55 /* MoviesAPI.swift */; };
 		92936054265499A100362E55 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92936053265499A100362E55 /* UIViewController+Ext.swift */; };
-		9293605826549A2000362E55 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9293605726549A2000362E55 /* UIView+Ext.swift */; };
+		92AD7A4C2654CDA4006BDDD2 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AD7A4B2654CDA4006BDDD2 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,7 @@
 		929360362654848F00362E55 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9293604F2654955100362E55 /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
 		92936053265499A100362E55 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		9293605726549A2000362E55 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		92AD7A4B2654CDA4006BDDD2 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +84,12 @@
 		928A9F2F264E3A520027D40B /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
-				929360522654999200362E55 /* Extensions */,
 				92935FFA2654082100362E55 /* Startup */,
 				929360142654165A00362E55 /* Networking */,
 				92935FFC265409F100362E55 /* Modules */,
 				92935FFD26540A1C00362E55 /* Resources */,
 				9293600326540B0900362E55 /* Utilities */,
+				929360522654999200362E55 /* Extensions */,
 				9293600826540B7300362E55 /* Constants */,
 			);
 			path = MoviesApp;
@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				9293600426540B4500362E55 /* Storyboarded.swift */,
+				92AD7A4B2654CDA4006BDDD2 /* ImageManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -224,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				92936053265499A100362E55 /* UIViewController+Ext.swift */,
-				9293605726549A2000362E55 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,7 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9293605826549A2000362E55 /* UIView+Ext.swift in Sources */,
 				928A9F35264E3A520027D40B /* MainViewController.swift in Sources */,
 				92936054265499A100362E55 /* UIViewController+Ext.swift in Sources */,
 				92936034265470CF00362E55 /* MoviesList.swift in Sources */,
@@ -312,6 +311,7 @@
 				929360502654955100362E55 /* MoviesAPI.swift in Sources */,
 				929360372654848F00362E55 /* Constants.swift in Sources */,
 				928A9F33264E3A520027D40B /* SceneDelegate.swift in Sources */,
+				92AD7A4C2654CDA4006BDDD2 /* ImageManager.swift in Sources */,
 				9293600526540B4500362E55 /* Storyboarded.swift in Sources */,
 				929360172654203400362E55 /* BaseAPI.swift in Sources */,
 				92936030265432F700362E55 /* MovieTableViewCell.swift in Sources */,
@@ -463,13 +463,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HAL7N5S87D;
+				DEVELOPMENT_TEAM = 3F4S24HCSA;
 				INFOPLIST_FILE = MoviesApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abdelrahman.MoviesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ab.MoviesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -482,13 +482,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HAL7N5S87D;
+				DEVELOPMENT_TEAM = 3F4S24HCSA;
 				INFOPLIST_FILE = MoviesApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abdelrahman.MoviesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ab.MoviesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
