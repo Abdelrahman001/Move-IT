@@ -8,14 +8,14 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieRate: UILabel!
+    @IBOutlet weak var movieReleaseDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
     }
 }
