@@ -26,7 +26,7 @@ struct Movie: Codable {
     let overview, releaseDate: String
     let id: Int
     let originalTitle: String
-    let title, backdropPath: String
+    let title, backdropPath: String?
     let voteAverage: Double
     
     enum CodingKeys: String, CodingKey {

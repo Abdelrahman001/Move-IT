@@ -16,6 +16,7 @@ struct URLs  {
     enum Path {
         case discoverPopularMovie
         case posterPath(String)
+        case movieDetails(String)
         
         var absoluteUrl: String {
             switch self {
@@ -23,6 +24,8 @@ struct URLs  {
                 return "\(URLs.baseUrl)/movie/popular\(URLs.apiKeyParam)"
             case .posterPath(let posterPath):
                 return "\(URLs.posterBaseUrl)/\(posterPath)"
+            case .movieDetails(let movieId):
+                return "\(URLs.baseUrl)/movie/\(movieId)\(URLs.apiKeyParam)"
             }
         }
     }

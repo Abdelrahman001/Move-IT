@@ -28,13 +28,15 @@ class MainViewController: UIViewController {
     
     func getPopularMovies() {
         self.showSpinner(onView: self.view)
-        moviesAPI.getPopularMovies { (movies, error) in
+        moviesAPI.getPopularMovies { (moviesList, error) in
             self.removeSpinner()
             if let error = error {
-                print("Error Getting Popular movies \(error)")
+                print("Error Getting Popular Movies \(error)")
             } else {
-                self.moviesArr = movies!.movies
-                self.moviesTableView.reloadData()
+                if let moviesList = moviesList {
+                    self.moviesArr = moviesList.movies
+                    self.moviesTableView.reloadData()
+                }
             }
         }
     }
@@ -43,8 +45,13 @@ class MainViewController: UIViewController {
 //MARK:- UITableView Delegate Methods
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushToDetailedViewController(index: indexPath.row)
+    }
+    
+    func pushToDetailedViewController(index: Int) {
         let detailedVC = MovieDetailsViewController.instantiate(storyboardName: .movieDetails)
         detailedVC.modalPresentationStyle = .fullScreen
+        detailedVC.movieId = "\(moviesArr[index].id)"
         self.navigationController?.pushViewController(detailedVC, animated: true)
     }
 }
